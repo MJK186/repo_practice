@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign Up</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="flex items-center justify-center h-screen bg-gradient-to-br from-indigo-500 to-purple-600">
+
+  <div class="bg-white w-96 p-8 rounded-2xl shadow-xl text-center animate-fadeIn">
+    <h2 class="text-3xl font-semibold text-gray-800 mb-6">Sign Up</h2>
+
+    <form onsubmit="return registerUser(event)" class="flex flex-col space-y-4">
+      <input type="text" placeholder="Full Name" required class="px-4 py-3 rounded-lg bg-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-400" />
+      <input type="email" placeholder="Email" required class="px-4 py-3 rounded-lg bg-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-400" />
+      <input type="password" placeholder="Password" required class="px-4 py-3 rounded-lg bg-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-400" />
+      
+      <button type="submit" class="bg-indigo-500 hover:bg-indigo-600 text-white py-3 rounded-lg font-medium transition">Sign Up</button>
+    </form>
+
+    <p class="mt-5 text-gray-600 text-sm">
+      Already have an account?
+      <span onclick="goToLogin()" class="text-indigo-500 font-semibold cursor-pointer hover:underline">Login</span>
+    </p>
+  </div>
+
+<script>
+  function goToLogin() {
+    window.location.href = "login.html";
+  }
+
+  function registerUser(event) {
+    event.preventDefault();
+
+    alert("Account created successfully! Please login.");
+
+    // Redirect to login page after signup
+    window.location.href = "login.html";
+  }
+</script>
+
+<style>
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .animate-fadeIn {
+    animation: fadeIn 0.8s ease;
+  }
+</style>
+
+</body>
+</html>
