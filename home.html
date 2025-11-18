@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Block access without login -->
+  <script>
+    if (!localStorage.getItem("user")) {
+      window.location.href = "login.html";
+    }
+  </script>
+</head>
+
+<body class="bg-gray-50 min-h-screen">
+
+  <nav class="flex justify-between items-center bg-indigo-600 text-white px-6 py-4 shadow-md">
+    <button onclick="logout()" class="bg-white text-indigo-600 px-4 py-2 rounded-lg font-semibold hover:bg-indigo-50 transition">Logout</button>
+  </nav>
+
+  <section class="flex flex-col items-center justify-center mt-20 text-center animate-fadeIn">
+    <h2 class="text-4xl font-bold text-gray-800 mb-3">Home Page</h2>
+    <p class="text-gray-600 text-lg">You are now logged in successfully!</p>
+
+    <div class="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-6 w-11/12 max-w-4xl">
+      <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition">
+        <h3 class="text-xl font-semibold text-indigo-600 mb-2">Profile</h3>
+        <p class="text-gray-500 text-sm">View and edit your personal information.</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition">
+        <h3 class="text-xl font-semibold text-indigo-600 mb-2">Settings</h3>
+        <p class="text-gray-500 text-sm">Manage your preferences and account details.</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition">
+        <h3 class="text-xl font-semibold text-indigo-600 mb-2">Support</h3>
+        <p class="text-gray-500 text-sm">Need help? Contact our support team.</p>
+      </div>
+    </div>
+  </section>
+
+<script>
+  function logout() {
+    localStorage.removeItem("user");
+    sessionStorage.removeItem("user");
+
+    window.location.href = "login.html";
+  }
+</script>
+
+<style>
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .animate-fadeIn {
+    animation: fadeIn 0.8s ease;
+  }
+</style>
+
+</body>
+</html>
